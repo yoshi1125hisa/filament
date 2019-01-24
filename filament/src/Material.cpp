@@ -278,7 +278,7 @@ Handle<HwProgram> FMaterial::getProgramSlow(uint8_t variantKey) const noexcept {
 
     assert(!Variant::isReserved(variantKey));
 
-    uint8_t vertexVariantKey = Variant::filterVariantVertex(variantKey);
+    uint8_t vertexVariantKey = Variant::filterVariantVertex(variantKey) & ~Variant::DEPTH_VARIANT;
     uint8_t fragmentVariantKey = Variant::filterVariantFragment(variantKey);
 
     /*
