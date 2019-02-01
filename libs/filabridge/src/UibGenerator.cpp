@@ -37,42 +37,42 @@ UniformInterfaceBlock const& UibGenerator::getPerViewUib() noexcept  {
     static UniformInterfaceBlock uib = UniformInterfaceBlock::Builder()
             .name("FrameUniforms")
             // transforms
-            .add("viewFromWorldMatrix",     1, UniformInterfaceBlock::Type::MAT4, Precision::HIGH)
-            .add("worldFromViewMatrix",     1, UniformInterfaceBlock::Type::MAT4, Precision::HIGH)
-            .add("clipFromViewMatrix",      1, UniformInterfaceBlock::Type::MAT4, Precision::HIGH)
-            .add("viewFromClipMatrix",      1, UniformInterfaceBlock::Type::MAT4, Precision::HIGH)
-            .add("clipFromWorldMatrix",     1, UniformInterfaceBlock::Type::MAT4, Precision::HIGH)
-            .add("worldFromClipMatrix",     1, UniformInterfaceBlock::Type::MAT4, Precision::HIGH)
-            .add("lightFromWorldMatrix",    1, UniformInterfaceBlock::Type::MAT4, Precision::HIGH)
+            .add("viewFromWorldMatrix",     0, UniformInterfaceBlock::Type::MAT4, Precision::HIGH)
+            .add("worldFromViewMatrix",     0, UniformInterfaceBlock::Type::MAT4, Precision::HIGH)
+            .add("clipFromViewMatrix",      0, UniformInterfaceBlock::Type::MAT4, Precision::HIGH)
+            .add("viewFromClipMatrix",      0, UniformInterfaceBlock::Type::MAT4, Precision::HIGH)
+            .add("clipFromWorldMatrix",     0, UniformInterfaceBlock::Type::MAT4, Precision::HIGH)
+            .add("worldFromClipMatrix",     0, UniformInterfaceBlock::Type::MAT4, Precision::HIGH)
+            .add("lightFromWorldMatrix",    0, UniformInterfaceBlock::Type::MAT4, Precision::HIGH)
             // view
-            .add("resolution",              1, UniformInterfaceBlock::Type::FLOAT4, Precision::HIGH)
+            .add("resolution",              0, UniformInterfaceBlock::Type::FLOAT4, Precision::HIGH)
             // camera
-            .add("cameraPosition",          1, UniformInterfaceBlock::Type::FLOAT3, Precision::HIGH)
+            .add("cameraPosition",          0, UniformInterfaceBlock::Type::FLOAT3, Precision::HIGH)
             // time
-            .add("time",                    1, UniformInterfaceBlock::Type::FLOAT, Precision::HIGH)
+            .add("time",                    0, UniformInterfaceBlock::Type::FLOAT, Precision::HIGH)
             // directional light
-            .add("lightColorIntensity",     1, UniformInterfaceBlock::Type::FLOAT4)
-            .add("sun",                     1, UniformInterfaceBlock::Type::FLOAT4)
-            .add("lightDirection",          1, UniformInterfaceBlock::Type::FLOAT3)
-            .add("fParamsX",                1, UniformInterfaceBlock::Type::UINT)
+            .add("lightColorIntensity",     0, UniformInterfaceBlock::Type::FLOAT4)
+            .add("sun",                     0, UniformInterfaceBlock::Type::FLOAT4)
+            .add("lightDirection",          0, UniformInterfaceBlock::Type::FLOAT3)
+            .add("fParamsX",                0, UniformInterfaceBlock::Type::UINT)
             // shadow
-            .add("shadowBias",              1, UniformInterfaceBlock::Type::FLOAT3)
-            .add("oneOverFroxelDimensionY", 1, UniformInterfaceBlock::Type::FLOAT)
+            .add("shadowBias",              0, UniformInterfaceBlock::Type::FLOAT3)
+            .add("oneOverFroxelDimensionY", 0, UniformInterfaceBlock::Type::FLOAT)
             // froxels
-            .add("zParams",                 1, UniformInterfaceBlock::Type::FLOAT4)
-            .add("fParams",                 1, UniformInterfaceBlock::Type::UINT2)
-            .add("origin",                  1, UniformInterfaceBlock::Type::FLOAT2)
+            .add("zParams",                 0, UniformInterfaceBlock::Type::FLOAT4)
+            .add("fParams",                 0, UniformInterfaceBlock::Type::UINT2)
+            .add("origin",                  0, UniformInterfaceBlock::Type::FLOAT2)
             // froxels (again, for alignment purposes)
-            .add("oneOverFroxelDimension",  1, UniformInterfaceBlock::Type::FLOAT)
+            .add("oneOverFroxelDimension",  0, UniformInterfaceBlock::Type::FLOAT)
             // ibl
-            .add("iblLuminance",            1, UniformInterfaceBlock::Type::FLOAT)
+            .add("iblLuminance",            0, UniformInterfaceBlock::Type::FLOAT)
             // camera
-            .add("exposure",                1, UniformInterfaceBlock::Type::FLOAT)
-            .add("ev100",                   1, UniformInterfaceBlock::Type::FLOAT)
+            .add("exposure",                0, UniformInterfaceBlock::Type::FLOAT)
+            .add("ev100",                   0, UniformInterfaceBlock::Type::FLOAT)
             // ibl
             .add("iblSH",                   9, UniformInterfaceBlock::Type::FLOAT3)
             // user time
-            .add("userTime",                1, UniformInterfaceBlock::Type::FLOAT4)
+            .add("userTime",                0, UniformInterfaceBlock::Type::FLOAT4)
             .build();
     return uib;
 }
@@ -80,8 +80,8 @@ UniformInterfaceBlock const& UibGenerator::getPerViewUib() noexcept  {
 UniformInterfaceBlock const& UibGenerator::getPerRenderableUib() noexcept {
     static UniformInterfaceBlock uib =  UniformInterfaceBlock::Builder()
             .name("ObjectUniforms")
-            .add("worldFromModelMatrix",       1, UniformInterfaceBlock::Type::MAT4, Precision::HIGH)
-            .add("worldFromModelNormalMatrix", 1, UniformInterfaceBlock::Type::MAT3, Precision::HIGH)
+            .add("worldFromModelMatrix",       0, UniformInterfaceBlock::Type::MAT4, Precision::HIGH)
+            .add("worldFromModelNormalMatrix", 0, UniformInterfaceBlock::Type::MAT3, Precision::HIGH)
             .build();
     return uib;
 }
@@ -97,9 +97,9 @@ UniformInterfaceBlock const& UibGenerator::getLightsUib() noexcept {
 UniformInterfaceBlock const& UibGenerator::getPostProcessingUib() noexcept {
     static UniformInterfaceBlock uib =  UniformInterfaceBlock::Builder()
             .name("PostProcessUniforms")
-            .add("uvScale", 1, UniformInterfaceBlock::Type::FLOAT2)
-            .add("time",    1, UniformInterfaceBlock::Type::FLOAT)
-            .add("yOffset", 1, UniformInterfaceBlock::Type::FLOAT)
+            .add("uvScale", 0, UniformInterfaceBlock::Type::FLOAT2)
+            .add("time",    0, UniformInterfaceBlock::Type::FLOAT)
+            .add("yOffset", 0, UniformInterfaceBlock::Type::FLOAT)
             .build();
     return uib;
 }

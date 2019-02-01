@@ -92,7 +92,7 @@ UniformInterfaceBlock::UniformInterfaceBlock(Builder const& builder) noexcept
     for (auto const& e : builder.mEntries) {
         size_t alignment = baseAlignmentForType(e.type);
         uint8_t stride = strideForType(e.type);
-        if (e.size > 1) { // this is an array
+        if (e.size > 0) { // this is an array
             // round the alignment up to that of a double4
             alignment = (alignment + 3) & ~3;
             stride = (stride + uint8_t(3)) & ~uint8_t(3);
@@ -109,7 +109,7 @@ UniformInterfaceBlock::UniformInterfaceBlock(Builder const& builder) noexcept
         infoMap[info.name.c_str()] = i;
 
         // advance offset to next slot
-        offset += stride * e.size;
+        offset += stride * (e.size ? e.size : 1);
         ++i;
     }
 

@@ -135,12 +135,13 @@ MaterialBuilder& MaterialBuilder::variable(Variable v, const char* name) noexcep
 
 MaterialBuilder& MaterialBuilder::parameter(UniformType type, const char* name) noexcept {
     ASSERT_POSTCONDITION(mParameterCount < MAX_PARAMETERS_COUNT, "Too many parameters");
-    mParameters[mParameterCount++] = { name, type, 1 };
+    mParameters[mParameterCount++] = { name, type, 0 };
     return *this;
 }
 
 MaterialBuilder& MaterialBuilder::parameter(UniformType type, size_t size, const char* name) noexcept {
     ASSERT_POSTCONDITION(mParameterCount < MAX_PARAMETERS_COUNT, "Too many parameters");
+    ASSERT_POSTCONDITION(size > 0, "Size must be greater than zero");
     mParameters[mParameterCount++] = { name, type, size };
     return *this;
 }
@@ -290,7 +291,7 @@ void MaterialBuilder::prepareToBuild(MaterialInfo& info) noexcept {
     }
 
     if (mBlendingMode == BlendingMode::MASKED) {
-        ibb.add("maskThreshold", 1, UniformType::FLOAT);
+        ibb.add("maskThreshold", 0, UniformType::FLOAT);
     }
 
     mRequiredAttributes.set(filament::VertexAttribute::POSITION);
