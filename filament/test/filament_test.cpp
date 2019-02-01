@@ -151,20 +151,20 @@ TEST(FilamentTest, UniformInterfaceBlock) {
     UniformInterfaceBlock::Builder b;
 
     b.name("TestUniformInterfaceBlock");
-    b.add("a_float_0", 1, UniformInterfaceBlock::Type::FLOAT);
-    b.add("a_float_1", 1, UniformInterfaceBlock::Type::FLOAT);
-    b.add("a_float_2", 1, UniformInterfaceBlock::Type::FLOAT);
-    b.add("a_float_3", 1, UniformInterfaceBlock::Type::FLOAT);
-    b.add("a_vec4_0",  1, UniformInterfaceBlock::Type::FLOAT4);
-    b.add("a_float_4", 1, UniformInterfaceBlock::Type::FLOAT);
-    b.add("a_float_5", 1, UniformInterfaceBlock::Type::FLOAT);
-    b.add("a_float_6", 1, UniformInterfaceBlock::Type::FLOAT);
-    b.add("a_vec3_0",  1, UniformInterfaceBlock::Type::FLOAT3);
-    b.add("a_float_7", 1, UniformInterfaceBlock::Type::FLOAT);
+    b.add("a_float_0", 0, UniformInterfaceBlock::Type::FLOAT);
+    b.add("a_float_1", 0, UniformInterfaceBlock::Type::FLOAT);
+    b.add("a_float_2", 0, UniformInterfaceBlock::Type::FLOAT);
+    b.add("a_float_3", 0, UniformInterfaceBlock::Type::FLOAT);
+    b.add("a_vec4_0",  0, UniformInterfaceBlock::Type::FLOAT4);
+    b.add("a_float_4", 0, UniformInterfaceBlock::Type::FLOAT);
+    b.add("a_float_5", 0, UniformInterfaceBlock::Type::FLOAT);
+    b.add("a_float_6", 0, UniformInterfaceBlock::Type::FLOAT);
+    b.add("a_vec3_0",  0, UniformInterfaceBlock::Type::FLOAT3);
+    b.add("a_float_7", 0, UniformInterfaceBlock::Type::FLOAT);
     b.add("a_float[3]",3, UniformInterfaceBlock::Type::FLOAT);
-    b.add("a_float_8", 1, UniformInterfaceBlock::Type::FLOAT);
-    b.add("a_mat3_0",  1, UniformInterfaceBlock::Type::MAT3);
-    b.add("a_mat4_0",  1, UniformInterfaceBlock::Type::MAT4);
+    b.add("a_float_8", 0, UniformInterfaceBlock::Type::FLOAT);
+    b.add("a_mat3_0",  0, UniformInterfaceBlock::Type::MAT3);
+    b.add("a_mat4_0",  0, UniformInterfaceBlock::Type::MAT4);
     b.add("a_mat3[3]", 3, UniformInterfaceBlock::Type::MAT3);
 
 
@@ -271,20 +271,20 @@ TEST(FilamentTest, UniformBuffer) {
 
     UniformInterfaceBlock::Builder b;
     b.name("TestUniformBuffer");
-    b.add("a_float_0", 1, UniformInterfaceBlock::Type::FLOAT);
-    b.add("a_float_1", 1, UniformInterfaceBlock::Type::FLOAT);
-    b.add("a_float_2", 1, UniformInterfaceBlock::Type::FLOAT);
-    b.add("a_float_3", 1, UniformInterfaceBlock::Type::FLOAT);
-    b.add("a_vec4_0",  1, UniformInterfaceBlock::Type::FLOAT4);
-    b.add("a_float_4", 1, UniformInterfaceBlock::Type::FLOAT);
-    b.add("a_float_5", 1, UniformInterfaceBlock::Type::FLOAT);
-    b.add("a_float_6", 1, UniformInterfaceBlock::Type::FLOAT);
-    b.add("a_vec3_0",  1, UniformInterfaceBlock::Type::FLOAT3);
-    b.add("a_float_7", 1, UniformInterfaceBlock::Type::FLOAT);
+    b.add("a_float_0", 0, UniformInterfaceBlock::Type::FLOAT);
+    b.add("a_float_1", 0, UniformInterfaceBlock::Type::FLOAT);
+    b.add("a_float_2", 0, UniformInterfaceBlock::Type::FLOAT);
+    b.add("a_float_3", 0, UniformInterfaceBlock::Type::FLOAT);
+    b.add("a_vec4_0",  0, UniformInterfaceBlock::Type::FLOAT4);
+    b.add("a_float_4", 0, UniformInterfaceBlock::Type::FLOAT);
+    b.add("a_float_5", 0, UniformInterfaceBlock::Type::FLOAT);
+    b.add("a_float_6", 0, UniformInterfaceBlock::Type::FLOAT);
+    b.add("a_vec3_0",  0, UniformInterfaceBlock::Type::FLOAT3);
+    b.add("a_float_7", 0, UniformInterfaceBlock::Type::FLOAT);
     b.add("a_float[3]",3, UniformInterfaceBlock::Type::FLOAT);
-    b.add("a_float_8", 1, UniformInterfaceBlock::Type::FLOAT);
-    b.add("a_mat3_0",  1, UniformInterfaceBlock::Type::MAT3);
-    b.add("a_mat4_0",  1, UniformInterfaceBlock::Type::MAT4);
+    b.add("a_float_8", 0, UniformInterfaceBlock::Type::FLOAT);
+    b.add("a_mat3_0",  0, UniformInterfaceBlock::Type::MAT3);
+    b.add("a_mat4_0",  0, UniformInterfaceBlock::Type::MAT4);
     UniformInterfaceBlock ib(b.build());
 
     CHECK2(ib.getUniformInfoList());

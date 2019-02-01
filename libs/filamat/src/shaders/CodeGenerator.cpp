@@ -263,7 +263,7 @@ std::ostream& CodeGenerator::generateUniforms(std::ostream& out, ShaderType shad
         out << "    " << precision;
         if (precision[0] != '\0') out << " ";
         out << type << " " << info.name.c_str();
-        if (info.size > 1) {
+        if (info.size > 0) {
             out << "[" << info.size << "]";
         }
         out << ";\n";

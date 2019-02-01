@@ -208,7 +208,7 @@ public:
     struct Parameter {
         Parameter() noexcept = default;
         Parameter(const char* paramName, SamplerType t, SamplerFormat f, SamplerPrecision p)
-                : name(paramName), size(1), samplerType(t), samplerFormat(f), samplerPrecision(p),
+                : name(paramName), size(0), samplerType(t), samplerFormat(f), samplerPrecision(p),
                 isSampler(true) { }
         Parameter(const char* paramName, UniformType t, size_t typeSize)
                 : name(paramName), size(typeSize), uniformType(t), isSampler(false) { }

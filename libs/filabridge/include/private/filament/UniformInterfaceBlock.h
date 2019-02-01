@@ -92,11 +92,11 @@ public:
         uint16_t offset;    // offset in "uint32_t" of this uniform in the buffer
         uint8_t stride;     // stride in "uint32_t" to the next element
         Type type;          // type of this uniform
-        uint32_t size;      // size of the array in elements, or 1 if not an array
+        uint32_t size;      // size of the array in elements, or 0 if not an array
         Precision precision;// precision of this uniform
         // returns offset in bytes of this uniform (at index if an array)
         inline size_t getBufferOffset(size_t index = 0) const {
-            assert(index < size);
+            assert(index <= size);
             return (offset + stride * index) * sizeof(uint32_t);
         }
     };
