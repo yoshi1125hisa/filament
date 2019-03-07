@@ -68,6 +68,7 @@ struct App {
     bool shadowPlane = false;
     float iblIntensity = 30000.0f;
     float iblRotation = 0.0f;
+    bool showWireframe = false;
 };
 
 static const char* DEFAULT_IBL = "envs/venetian_crossroads";
@@ -327,6 +328,12 @@ int main(int argc, char** argv) {
                     animationsTreeItem();
                     ImGui::TreePop();
                 }
+            }
+            ImGui::Checkbox("Wireframe", &app.showWireframe);
+            if (app.showWireframe) {
+                app.scene->addEntity(app.asset->getWireframe());
+            } else {
+                app.scene->remove(app.asset->getWireframe());
             }
             treeNode(app.asset->getRoot());
         }
