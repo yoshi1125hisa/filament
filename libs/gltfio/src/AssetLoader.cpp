@@ -331,8 +331,6 @@ void FAssetLoader::createRenderable(const cgltf_node* node, Entity entity) {
     float3 h = (worldTransform * float4(aabb.max.x, aabb.max.y, aabb.max.z, 1.0)).xyz;
     float3 minpt = min(min(min(min(min(min(min(a, b), c), d), e), f), g), h);
     float3 maxpt = max(max(max(max(max(max(max(a, b), c), d), e), f), g), h);
-std::cerr << "AssetLoader BEFOR " << aabb.min << " " << aabb.max << std::endl;
-std::cerr << "AssetLoader AFTER " << minpt << " " << maxpt << std::endl;
 
     // Expand the world-space bounding box.
     mResult->mBoundingBox.min = min(mResult->mBoundingBox.min, minpt);

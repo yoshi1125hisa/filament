@@ -583,7 +583,6 @@ void MeshAssimp::addFromFile(const Path& path,
     for (auto& mesh : asset.meshes) {
         RenderableManager::Builder builder(mesh.parts.size());
         builder.boundingBox(mesh.aabb);
-        builder.culling(true);
 
         size_t partIndex = 0;
         for (auto& part : mesh.parts) {
@@ -753,9 +752,6 @@ bool MeshAssimp::setFromFile(Asset& asset, std::map<std::string, MaterialInstanc
 
             float3 aabbMin = transformedAabb.getMin();
             float3 aabbMax = transformedAabb.getMax();
-
-            std::cerr << "MeshAssimp BEFOR " << mesh.aabb.getMin() << " " << mesh.aabb.getMax() << std::endl;
-            std::cerr << "MeshAssimp AFTER " << aabbMin << " " << aabbMax << std::endl;
 
             if (!isinf(aabbMin.x) && !isinf(aabbMax.x)) {
                 if (minBound.x > maxBound.x) {

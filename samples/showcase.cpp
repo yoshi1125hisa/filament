@@ -339,7 +339,7 @@ int main(int argc, char** argv) {
     FilamentApp& filamentApp = FilamentApp::get();
     filamentApp.enableSidebar(SIDEBAR_WIDTH);
     filamentApp.animate(animate);
-    filamentApp.run(app.config, setup, cleanup);
+    filamentApp.run(app.config, setup, cleanup, gui);
 
     delete app.names;
 

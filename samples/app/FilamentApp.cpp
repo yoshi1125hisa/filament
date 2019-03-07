@@ -605,7 +605,7 @@ void FilamentApp::Window::configureCamerasForWindow() {
 
     const float3 at(0, 0, -4);
     const double ratio = double(h) / double(w);
-    const int sidebar = 0;//mFilamentApp->mSidebarWidth * dpiScaleX;
+    const int sidebar = mFilamentApp->mSidebarWidth * dpiScaleX;
 
     double near = 0.1;
     double far = 50;
